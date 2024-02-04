@@ -1,0 +1,54 @@
+this is a text file containing the rough queries
+they will be properly be contained inside the 
+.sql file for that.
+
+create database banking_system;
+use banking system;
+
+//2 tables
+
+create table user(
+    full_name varchar(255) not null ,
+    email varchar(255) not null Primary key,
+    password varchar(255) not null
+);
+
+create table accounts(
+    account_number bigint not null primary key,
+    full_name varchar(255) not null,
+    email varchar(255) not null unique;
+    balance decimal(10,2) not null,
+    security_pin char(4) not null
+);
+
+mysql> describe accounts;
++----------------+---------------+------+-----+---------+-------+
+| Field          | Type          | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| account_number | bigint        | NO   | PRI | NULL    |       |
+| full_name      | varchar(255)  | NO   |     | NULL    |       |
+| email          | varchar(255)  | NO   | UNI | NULL    |       |
+| balance        | decimal(10,2) | NO   |     | NULL    |       |
+| security_pin   | char(4)       | NO   |     | NULL    |       |
++----------------+---------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> describe user;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| full_name | varchar(255) | NO   |     | NULL    |       |
+| email     | varchar(255) | NO   | PRI | NULL    |       |
+| password  | varchar(255) | NO   |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+for our work we make a user account being the basis of the work
+INSERT INTO user VALUES("u1","u1@email.com","u1pass");
+mysql> select * from user;
++-----------+--------------+----------+
+| full_name | email        | password |
++-----------+--------------+----------+
+| u1        | u1@email.com | u1pass   |
++-----------+--------------+----------+
+1 row in set (0.00 sec)
